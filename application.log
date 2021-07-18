@@ -1,0 +1,14 @@
+2021-07-18 11:20:26,091  INFO [main] TestBase:25 - reading a value for a property: browser
+2021-07-18 11:20:26,112  INFO [main] TestBase:28 - initializing property file
+2021-07-18 11:20:26,116  INFO [main] TestBase:35 - proerty value found in the file with key as: browser and value is: chrome
+2021-07-18 11:20:26,116  INFO [main] TestBase:40 - initializing browser
+2021-07-18 11:20:26,117  INFO [main] TestBase:25 - reading a value for a property: browser
+2021-07-18 11:20:26,147  INFO [main] TestBase:28 - initializing property file
+2021-07-18 11:20:26,150  INFO [main] TestBase:35 - proerty value found in the file with key as: browser and value is: chrome
+2021-07-18 11:20:26,150  INFO [main] TestBase:42 - user wants to automate with chrome browser
+2021-07-18 11:20:45,357  INFO [main] TestBase:59 - launching an application
+2021-07-18 11:20:45,357  INFO [main] TestBase:25 - reading a value for a property: url
+2021-07-18 11:20:45,358  INFO [main] TestBase:28 - initializing property file
+2021-07-18 11:20:45,358  INFO [main] TestBase:35 - proerty value found in the file with key as: url and value is: file:///C:/Users/Administrator/Desktop/Offline%20Website/Offline%20Website/pages/examples/dashboard.html
+2021-07-18 11:20:51,756  INFO [main] TestBase:65 - test case failed and taking screenshot
+2021-07-18 11:20:52,252  INFO [main] TestBase:74 - screenshot saved in the project directory
