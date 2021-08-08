@@ -1,2 +1,5 @@
 com\tests\DemoTest1.class
+com\pageTest\LoginTest.class
+com\pageTest\UserTest.class
+com\pageTest\DashboardTest.class
 com\tests\DemoTest.class

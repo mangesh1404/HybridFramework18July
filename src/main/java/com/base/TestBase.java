@@ -14,11 +14,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.JsonFormatter;
+
 
 public class TestBase {
 	static FileInputStream fis=null;
 	public static WebDriver driver;
-	
+	public static ExtentReports extent;
+	public static ExtentTest test;
+	public static ExtentSparkReporter spark =null;
 	public static Logger log = Logger.getLogger(TestBase.class);
 	
 	public static String readProperty(String key) {
@@ -37,10 +44,17 @@ public class TestBase {
 	}
 	
 	public static WebDriver initialization() {
+		spark= new ExtentSparkReporter(System.getProperty("user.dir") +"/test-output/ExtentReportWithScreenshot.html");
+		extent = new ExtentReports();
+		extent.setSystemInfo("Host Name", "JBK_Automation");
+		extent.setSystemInfo("Environment", "Automation testing");
+		extent.setSystemInfo("User Name", "JBK");
+		extent.attachReporter(spark);
+		
 		log.info("initializing browser");
 		if(readProperty("browser").equalsIgnoreCase("chrome")) {
 			log.info("user wants to automate with chrome browser");
-			System.setProperty("webdriver.chrome.driver","C:/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver","E:/chromedriver.exe");
 			driver= new ChromeDriver();
 		}
 		else if(readProperty("browser").equalsIgnoreCase("firefox")) {
@@ -61,24 +75,25 @@ public class TestBase {
 		return driver;
 		}
 	
-	public static void getScreenshot(WebDriver driver,String name) {
+	public static String getScreenshot(WebDriver driver,String name) {
 		log.info("test case failed and taking screenshot");
 		TakesScreenshot ts = (TakesScreenshot)driver;
 		File src= ts.getScreenshotAs(OutputType.FILE);
 		File dest = new File(System.getProperty("user.dir")+"/screenshots/"+name+".jpg");
+		String path = System.getProperty("user.dir")+"/screenshots/"+name+".jpg";
 		try {
 			FileUtils.copyFile(src, dest);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		log.info("screenshot saved in the project directory");
+		return path;
 	}
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		System.out.println(readProperty("browser"));
 		driver=initialization();
 		getScreenshot(driver, "demo");
-		
-	}
+	}*/
 	
 }

@@ -47,5 +47,8 @@ public class DashboardPage {
 		
 		return false;
 	}
-	
+	public UserPage clickUsers() {
+		usersBtn.click();
+		return new UserPage(driver);
+	}
 }
